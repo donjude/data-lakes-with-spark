@@ -183,11 +183,12 @@ def main():
         back to s3 bucket.
     """
     spark = create_spark_session()
-    input_data = "s3a://udacity-dend/"
-    output_data = "s3a://sparkify-dend/"
+    input_song_data = "s3://udacity-dend/song_data/A/A/A/"
+    input_log_data = "s3://udacity-dend/log_data/2018/11/"
+    output_data = "s3://aws-logs-377518875856-us-west-2/elasticmapreduce/"
     
-    process_song_data(spark, input_data, output_data)    
-    process_log_data(spark, input_data, output_data)
+    process_song_data(spark, input_song_data, output_data)    
+    process_log_data(spark, input_log_data, output_data)
 
 
 if __name__ == "__main__":
