@@ -69,7 +69,7 @@ def process_song_data(spark, input_data, output_data):
                    "artist_latitude as latitude", \
                    "artist_longitude as longitude"]
     
-    artists_table = song_df.selectExpr(artists_columns).dropDuplicates()
+    artists_table = song_df.selectExpr(artists_col).dropDuplicates()
 
     # write artists table to parquet files
     artists_table.write.parquet(os.path.join(output_data, "artists")
