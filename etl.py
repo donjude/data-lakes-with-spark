@@ -63,10 +63,10 @@ def process_song_data(spark, input_data, output_data):
     songs_table.write.partitionBy("year", "artist_id").parquet(os.path.join(output_data, "songs")
 
     # extract columns to create artists table
-    artists_col = ["artist_id", 
-                   "artist_name", 
-                   "artist_location as location", 
-                   "artist_latitude as latitude", 
+    artists_col = ["artist_id", \
+                   "artist_name", \
+                   "artist_location as location", \
+                   "artist_latitude as latitude", \
                    "artist_longitude as longitude"]
     
     artists_table = song_df.selectExpr(artists_columns).dropDuplicates()
@@ -119,10 +119,10 @@ def process_log_data(spark, input_data, output_data):
     event_log_df = event_log_df.filter(df.page == "NextSong")
 
     # extract columns for users table
-    users_col = ["userdId as user_id", 
-                 "firstName as first_name", 
-                 "lastName as last_name", 
-                 "gender", 
+    users_col = ["userdId as user_id", \
+                 "firstName as first_name", \
+                 "lastName as last_name", \
+                 "gender", \
                  "level"]
     users_table = event_log_df.selectExpr(users_col).dropDuplicates()
     
