@@ -61,11 +61,11 @@ def process_song_data(spark, input_data, output_data):
     
     # write songs table to parquet files partitioned by year and artist
     songs_table.write.partitionBy("year", "artist_id").parquet(os.path.join(output_data, "songs")
-
+                                                               
     # extract columns to create artists table
-    artists_col = ["artist_id", "artist_name", "artist_location as location", "artist_latitude as latitude", "artist_longitude as longitude"]
+    artists_col = ["artist_id", "artist_name", "artist_location", "artist_latitude", "artist_longitude"]
     
-    artists_table = song_df.selectExpr(artists_col).dropDuplicates()
+    artists_table = song_df.select(artists_col).dropDuplicates()
 
     # write artists table to parquet files
     artists_table.write.parquet(os.path.join(output_data, "artists")
