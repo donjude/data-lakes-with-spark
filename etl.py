@@ -38,7 +38,7 @@ def process_song_data(spark, input_data, output_data):
     
     # define song schema
     songSchema = StructType([
-        SructField("num_songs", IntegerType())
+        SructField("num_songs", IntegerType()),
         StructField("artist_id", StringType()),
         StructField("artist_latitude", StringType()),
         StructField("artist_longitude", StringType()),
