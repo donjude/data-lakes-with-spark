@@ -1,4 +1,4 @@
-# data-lakes-with-spark
+# Data Lakes with Spark
 
 ## Project Summary
 
